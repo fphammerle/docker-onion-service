@@ -1,5 +1,7 @@
 # docker: hidden tor .onion service
 
+repo: https://github.com/fphammerle/docker-onion-service
+
 docker hub: https://hub.docker.com/r/fphammerle/onion-service
 
 ## example 1
