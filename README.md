@@ -18,6 +18,7 @@ $ docker create --name onion-service \
     --env TARGET=1.1.1.1:80 \
     --volume onion-key:/onion-service \
     --restart unless-stopped \
+    --cap-drop all --security-opt no-new-privileges \
     fphammerle/onion-service:latest
 
 $ docker start onion-service
