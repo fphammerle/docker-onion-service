@@ -8,7 +8,7 @@ docker hub: https://hub.docker.com/r/fphammerle/onion-service
 
 ```sh
 $ docker run --name onion-service \
-    -e VIRTUAL_PORT=80 -e TARGET=1.1.1.1:80 \
+    -e VIRTUAL_PORT=80 -e TARGET=1.2.3.4:8080 \
     fphammerle/onion-service
 ```
 
@@ -17,7 +17,7 @@ $ docker run --name onion-service \
 ```sh
 $ docker create --name onion-service \
     --env VIRTUAL_PORT=80 \
-    --env TARGET=1.1.1.1:80 \
+    --env TARGET=1.2.3.4:8080 \
     --volume onion-key:/onion-service \
     --restart unless-stopped \
     --cap-drop all --security-opt no-new-privileges \
