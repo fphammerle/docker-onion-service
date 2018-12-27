@@ -1,0 +1,9 @@
+Log notice stdout
+
+# disable socks proxy
+SOCKSPort 0
+
+# https://www.torproject.org/docs/tor-onion-service
+HiddenServiceDir /onion-service
+# consider HiddenServiceVersion 3
+HiddenServicePort {virtual_port} {target}
