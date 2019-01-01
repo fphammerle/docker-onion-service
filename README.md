@@ -1,4 +1,4 @@
-# docker: hidden tor .onion service
+# docker: hidden tor .onion service 🐳
 
 repo: https://github.com/fphammerle/docker-onion-service
 
