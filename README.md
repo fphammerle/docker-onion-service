@@ -4,6 +4,8 @@ repo: https://github.com/fphammerle/docker-onion-service
 
 docker hub: https://hub.docker.com/r/fphammerle/onion-service
 
+defaults to creating a [v3](https://trac.torproject.org/projects/tor/wiki/doc/NextGenOnions) service
+
 ## example 1
 
 ```sh
@@ -16,6 +18,7 @@ $ docker run --name onion-service \
 
 ```sh
 $ docker create --name onion-service \
+    --env VERSION=3 \
     --env VIRTUAL_PORT=80 \
     --env TARGET=1.2.3.4:8080 \
     --volume onion-key:/onion-service \
@@ -30,5 +33,5 @@ $ docker start onion-service
 
 ```sh
 $ docker exec onion-service cat /onion-service/hostname
-abcdefghijklmnop.onion
+abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
 ```
