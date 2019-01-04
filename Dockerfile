@@ -6,7 +6,8 @@ RUN adduser -S onion
 RUN mkdir -m u=rwx,g=,o= /onion-service && chown onion /onion-service
 VOLUME /onion-service
 
-COPY --chown=onion:nobody torrc.template /
+COPY torrc.template /
+RUN chmod a+r /torrc.template
 
 ENV VERSION 3
 ENV VIRTUAL_PORT 80
