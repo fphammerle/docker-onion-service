@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM arm32v6/alpine:3.8
 
 RUN apk add --no-cache tor
 
