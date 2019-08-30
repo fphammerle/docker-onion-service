@@ -2,7 +2,7 @@
 
 Tor bridge running obfs4 obfuscation protocol in Alpine
 
-alpine port of https://dip.torproject.org/torproject/anti-censorship/docker-obfs4-bridge
+Alpine port of https://dip.torproject.org/torproject/anti-censorship/docker-obfs4-bridge
 
 ## usage
 
@@ -18,6 +18,6 @@ docker run --name tor_obfs4_bridge \
     fphammerle/tor-obfs4-bridge
 ```
 
-# further reading
+## further reading
 
 https://community.torproject.org/relay/setup/bridge/
