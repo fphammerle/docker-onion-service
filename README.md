@@ -1,6 +1,8 @@
 # docker: tor obfs4 bridge 🐳
 
-ansible port of https://dip.torproject.org/torproject/anti-censorship/docker-obfs4-bridge
+Tor bridge running obfs4 obfuscation protocol in Alpine
+
+alpine port of https://dip.torproject.org/torproject/anti-censorship/docker-obfs4-bridge
 
 ## usage
 
