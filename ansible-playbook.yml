@@ -1,0 +1,19 @@
+- hosts: [some-host]
+  become: true
+  vars:
+    or_port: 42218 # random
+    pt_port: 51804 # random
+    contact_info: admin@optional.com
+  tasks:
+  - docker_container:
+      name: tor_obfs4_bridge
+      image: fphammerle/tor-obfs4-bridge@sha256:80bd5004b44abb91f6c6385bd46fb5fe18d6baf6f5717253e2fa0b7cd8d52b5e
+      env:
+        OR_PORT: '{{ or_port }}'
+        PT_PORT: '{{ pt_port }}'
+        CONTACT_INFO: '{{ contact_info }}'
+      publish:
+      - '{{ or_port }}:{{ or_port }}'
+      - '{{ pt_port }}:{{ pt_port }}'
+      memory: 128M
+      restart_policy: unless-stopped
