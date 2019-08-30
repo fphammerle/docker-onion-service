@@ -1,17 +1,16 @@
-FROM alpine:3.8
+# https://pkgs.alpinelinux.org/packages?name=obfs4proxy&arch=x86_64
+FROM alpine:3.10
 
-RUN apk add --no-cache tor
+RUN adduser -S onion \
+    && apk add --no-cache tor \
+    && apk add --no-cache obfs4proxy \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing
 
-RUN adduser -S onion
-RUN mkdir -m u=rwx,g=,o= /onion-service && chown onion /onion-service
-VOLUME /onion-service
-
+ENV OR_PORT=
+ENV PT_PORT=
+ENV CONTACT_INFO=
 COPY torrc.template /
 RUN chmod a+r /torrc.template
-
-ENV VERSION 3
-ENV VIRTUAL_PORT 80
-ENV TARGET 127.0.0.1:8080
 
 COPY entrypoint.sh /
 RUN chmod a+rx /entrypoint.sh

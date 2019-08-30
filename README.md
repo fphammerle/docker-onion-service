@@ -1,37 +1,21 @@
-# docker: hidden tor .onion service 🐳
+# docker: tor obfs4 bridge 🐳
 
-repo: https://github.com/fphammerle/docker-onion-service
+ansible port of https://dip.torproject.org/torproject/anti-censorship/docker-obfs4-bridge
 
-docker hub: https://hub.docker.com/r/fphammerle/onion-service
+## usage
 
-defaults to creating a [v3](https://trac.torproject.org/projects/tor/wiki/doc/NextGenOnions) service
+select a random `$OR_PORT` and `$PT_PORT`
 
-## example 1
-
-```sh
-$ docker run --name onion-service \
-    -e VIRTUAL_PORT=80 -e TARGET=1.2.3.4:8080 \
-    fphammerle/onion-service
-```
-
-## example 2
+(see `/proc/sys/net/ipv4/ip_local_port_range` for range)
 
 ```sh
-$ docker create --name onion-service \
-    --env VERSION=3 \
-    --env VIRTUAL_PORT=80 \
-    --env TARGET=1.2.3.4:8080 \
-    --volume onion-key:/onion-service \
-    --restart unless-stopped \
-    --cap-drop all --security-opt no-new-privileges \
-    fphammerle/onion-service:latest
-
-$ docker start onion-service
+docker run --name tor_obfs4_bridge \
+    -e OR_PORT=42218 -p 42218:42218 \
+    -e PT_PORT=51804 -p 51804:51804 \
+    -e CONTACT_INFO=admin@optional.com \
+    fphammerle/tor-obfs4-bridge
 ```
 
-## retrieve hostname
+# further reading
 
-```sh
-$ docker exec onion-service cat /onion-service/hostname
-abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
-```
+https://community.torproject.org/relay/setup/bridge/

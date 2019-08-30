@@ -3,7 +3,11 @@ Log notice stdout
 # disable socks proxy
 SOCKSPort 0
 
-# https://www.torproject.org/docs/tor-onion-service
-HiddenServiceDir /onion-service
-HiddenServiceVersion {version}
-HiddenServicePort {virtual_port} {target}
+BridgeRelay 1
+ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy
+ExtORPort auto
+ORPort {OR_PORT}
+ServerTransportListenAddr obfs4 0.0.0.0:{PT_PORT}
+
+Nickname FPHmmrleObfs4Bridge
+ContactInfo {CONTACT_INFO}
