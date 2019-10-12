@@ -1,4 +1,4 @@
-# docker: tor socks & dns proxy 🐳
+# docker: tor socks & dns proxy 🌐 🐳
 
 docker hub: https://hub.docker.com/r/fphammerle/tor-proxy
 
@@ -11,7 +11,7 @@ $ docker run --rm --name tor-proxy \
     fphammerle/tor-proxy
 ```
 
-or after cloning the repository:
+or after cloning the repository 🐙
 ```sh
 $ docker-compose up
 ```
