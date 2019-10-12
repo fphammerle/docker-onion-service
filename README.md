@@ -26,3 +26,8 @@ $ ssh -o 'ProxyCommand nc -x localhost:9050 -v %h %p' abcdefghi.onion
 # no anonymity!
 $ chromium-browser --proxy-server=socks5://localhost:9050 ipinfo.io
 ```
+
+isolate:
+```sh
+iptables -A OUTPUT ! -o lo -j REJECT --reject-with icmp-admin-prohibited
+```
