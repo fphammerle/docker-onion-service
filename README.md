@@ -1,37 +1,28 @@
-# docker: hidden tor .onion service 🐳
+# docker: tor socks & dns proxy 🐳
 
-repo: https://github.com/fphammerle/docker-onion-service
+docker hub: https://hub.docker.com/r/fphammerle/tor-proxy
 
-docker hub: https://hub.docker.com/r/fphammerle/onion-service
-
-defaults to creating a [v3](https://trac.torproject.org/projects/tor/wiki/doc/NextGenOnions) service
-
-## example 1
+signed tags: https://github.com/fphammerle/tor-proxy/tags
 
 ```sh
-$ docker run --name onion-service \
-    -e VIRTUAL_PORT=80 -e TARGET=1.2.3.4:8080 \
-    fphammerle/onion-service
+$ docker run --rm --name tor-proxy \
+    -p 127.0.0.1:9050:9050/tcp \
+    -p 127.0.0.1:53:53/udp \
+    fphammerle/tor-proxy
 ```
 
-## example 2
-
+or after cloning the repository:
 ```sh
-$ docker create --name onion-service \
-    --env VERSION=3 \
-    --env VIRTUAL_PORT=80 \
-    --env TARGET=1.2.3.4:8080 \
-    --volume onion-key:/onion-service \
-    --restart unless-stopped \
-    --cap-drop all --security-opt no-new-privileges \
-    fphammerle/onion-service:latest
-
-$ docker start onion-service
+$ docker-compose up
 ```
 
-## retrieve hostname
-
+test proxies:
 ```sh
-$ docker exec onion-service cat /onion-service/hostname
-abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
+$ curl --socks5 localhost:9050 ipinfo.io
+$ torsocks wget -O - ipinfo.io
+$ torsocks lynx -dump https://check.torproject.org/
+$ dig @localhost fabian.hammerle.me
+$ ssh -o 'ProxyCommand nc -x localhost:9050 -v %h %p' abcdefghi.onion
+# no anonymity!
+$ chromium-browser --proxy-server=socks5://localhost:9050 ipinfo.io
 ```

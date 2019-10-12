@@ -1,0 +1,15 @@
+version: '2.2'
+
+services:
+  tor_proxy:
+    build: .
+    image: fphammerle/tor-proxy
+    ports:
+    - '127.0.0.1:9050:9050/tcp'
+    - '127.0.0.1:53:53/udp'
+    security_opt: ['no-new-privileges']
+    restart: unless-stopped
+    cpus: 0.5
+    mem_limit: 128m
+
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
