@@ -1,0 +1,26 @@
+- hosts: [some-host]
+  become: true
+  tasks:
+  - docker_network:
+      name: tor_proxy_network
+      driver_options:
+        com.docker.network.bridge.name: tor
+  - docker_container:
+      name: tor_proxy
+      # TODO add hash
+      image: fphammerle/tor-proxy
+      networks:
+      - name: tor_proxy_network
+      purge_networks: yes
+      ports:
+      - '127.0.0.1:9050:9050/tcp'
+      - '127.0.0.1:53:53/udp'
+      restart_policy: unless-stopped
+      memory: 128M
+  - iptables:
+      action: append
+      table: filter
+      chain: OUTPUT
+      out_interface: '!lo'
+      jump: REJECT
+      reject_with: icmp-admin-prohibited
