@@ -7,8 +7,8 @@
         com.docker.network.bridge.name: tor
   - docker_container:
       name: tor_proxy
-      # TODO add hash
-      image: fphammerle/tor-proxy
+      # 1.0.0-tor0.4.1.6-amd64
+      image: fphammerle/tor-proxy@sha256:ad55d07b1b21c35fa044dc3e1ea6c7d8494f39eb89491ddad35c245340f7cd4b
       networks:
       - name: tor_proxy_network
       purge_networks: yes
