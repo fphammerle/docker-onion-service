@@ -4,6 +4,8 @@ repo: https://github.com/fphammerle/docker-onion-service
 
 docker hub: https://hub.docker.com/r/fphammerle/onion-service
 
+signed tags: https://github.com/fphammerle/docker-onion-service/tags
+
 defaults to creating a [v3](https://trac.torproject.org/projects/tor/wiki/doc/NextGenOnions) service
 
 ## example 1
@@ -35,3 +37,9 @@ $ docker start onion-service
 $ docker exec onion-service cat /onion-service/hostname
 abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
 ```
+
+## docker-compose 🐙
+
+1. `git clone https://github.com/fphammerle/docker-onion-service`
+2. edit `docker-compose.yml`
+3. `docker-compose up --build`

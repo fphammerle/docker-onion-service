@@ -1,9 +1,12 @@
 Log notice stdout
 
-# disable socks proxy
-SOCKSPort 0
+# healthcheck
+SocksPort 9050
 
 # https://www.torproject.org/docs/tor-onion-service
 HiddenServiceDir /onion-service
 HiddenServiceVersion {version}
 HiddenServicePort {virtual_port} {target}
+
+# try to
+HardwareAccel 1

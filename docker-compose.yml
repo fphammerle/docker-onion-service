@@ -1,4 +1,4 @@
-version: '3'
+version: '2.2'
 
 volumes:
   key:
@@ -14,5 +14,7 @@ services:
       TARGET: 1.2.3.4:8080
     security_opt: [no-new-privileges]
     restart: unless-stopped
+    cpus: 0.5
+    mem_limit: 128m
 
 # https://docs.docker.com/compose/compose-file/

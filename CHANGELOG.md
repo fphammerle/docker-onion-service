@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - tor v0.3.3.7 -> v0.3.5.8
 
 ### Added
+- healthcheck via `nc`
+- enable hardware acceleration if available
 - sample ansible playbook
 - sample `docker-compose.yml`
 
