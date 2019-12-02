@@ -1,6 +1,6 @@
-FROM alpine:3.8
+FROM alpine:3.10
 
-RUN apk add --no-cache tor
+RUN apk add --no-cache tor=~0.3.5.8
 
 RUN adduser -S onion
 RUN mkdir -m u=rwx,g=,o= /onion-service && chown onion /onion-service
