@@ -3,11 +3,11 @@ FROM alpine:3.10
 ARG TOR_PACKAGE_VERSION=0.3.5.8-r0
 ARG NETCAT_PACKAGE_VERSION=1.130-r1
 RUN apk add --no-cache \
-    netcat-openbsd=${NETCAT_PACKAGE_VERSION} \
-    tor=${TOR_PACKAGE_VERSION}
-
-RUN adduser -S onion
-RUN mkdir -m u=rwx,g=,o= /onion-service && chown onion /onion-service
+        netcat-openbsd=${NETCAT_PACKAGE_VERSION} \
+        tor=${TOR_PACKAGE_VERSION} \
+    && adduser -S onion \
+    && mkdir -m u=rwx,g=,o= /onion-service \
+    && chown onion /onion-service
 VOLUME /onion-service
 
 COPY torrc.template /
