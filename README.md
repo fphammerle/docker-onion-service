@@ -18,7 +18,7 @@ $ docker-compose up
 
 test proxies:
 ```sh
-$ curl --socks5 localhost:9050 ipinfo.io
+$ curl --proxy socks5h://localhost:9050 ipinfo.io
 $ torsocks wget -O - ipinfo.io
 $ torsocks lynx -dump https://check.torproject.org/
 $ dig @localhost fabian.hammerle.me
