@@ -2,7 +2,7 @@
 
 docker hub: https://hub.docker.com/r/fphammerle/tor-proxy
 
-signed tags: https://github.com/fphammerle/tor-proxy/tags
+signed tags: https://github.com/fphammerle/docker-tor-proxy/tags
 
 ```sh
 $ docker run --rm --name tor-proxy \
