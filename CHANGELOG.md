@@ -7,11 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - reduced number of image layers
+- upgrade default tor version: 0.3.5.8 -> 0.4.1.7
+  (no apparent breaking changes relevant for this image)
 
 ## [1.0.0] - 2019-12-29
-### Changed
-- tor v0.3.3.7 -> v0.3.5.8
-
 ### Added
 - healthcheck via `nc`
 - enable hardware acceleration if available
@@ -21,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 - split `COPY --chown` into `COPY` & `RUN chmod`
   to improve backward compatibility
+- upgrade default tor version: v0.3.3.7 -> v0.3.5.8
+  ( https://gitweb.torproject.org/tor.git/plain/ChangeLog )
 
 ## [0.2] - 2019-01-03
 ### Changed

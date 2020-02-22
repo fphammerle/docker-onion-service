@@ -2,7 +2,7 @@
 
 repo: https://github.com/fphammerle/docker-onion-service
 
-docker hub: https://hub.docker.com/r/fphammerle/onion-service
+docker hub: https://hub.docker.com/r/fphammerle/onion-service/tags
 
 signed tags: https://github.com/fphammerle/docker-onion-service/tags
 
