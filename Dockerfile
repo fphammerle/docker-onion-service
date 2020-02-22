@@ -1,6 +1,6 @@
-FROM alpine:3.10
+FROM alpine:3.11
 
-ARG TOR_PACKAGE_VERSION=0.3.5.8-r0
+ARG TOR_PACKAGE_VERSION=0.4.1.7-r0
 ARG NETCAT_PACKAGE_VERSION=1.130-r1
 RUN apk add --no-cache \
         netcat-openbsd=${NETCAT_PACKAGE_VERSION} \
