@@ -1,6 +1,7 @@
-version: '2.2'
+version: '2.3'
 
 volumes:
+  data:
   key:
 
 services:
@@ -8,7 +9,19 @@ services:
     build: .
     image: fphammerle/onion-service
     volumes:
-    - key:/onion-service:rw
+    - type: volume
+      source: data
+      target: /var/lib/tor
+    - type: volume
+      source: key
+      target: /onion-service
+    - type: tmpfs
+      target: /tmp # torrc
+      tmpfs:
+        # nosuid,nodev,noexec added by default
+        mode: '1777'
+        size: 4k
+    read_only: yes
     environment:
       VIRTUAL_PORT: 80
       TARGET: 1.2.3.4:8080

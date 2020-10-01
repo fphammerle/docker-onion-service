@@ -1,5 +1,8 @@
 Log notice stdout
 
+# default: ~/.tor
+DataDirectory /var/lib/tor
+
 # https://gitweb.torproject.org/torspec.git/tree/control-spec.txt
 ControlPort localhost:9051
 

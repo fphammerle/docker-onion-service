@@ -5,9 +5,9 @@ ARG TOR_PACKAGE_VERSION=0.4.3.5-r0
 RUN apk add --no-cache \
         netcat-openbsd=$NETCAT_PACKAGE_VERSION \
         tor=$TOR_PACKAGE_VERSION \
-    && adduser -S onion \
     && mkdir -m u=rwx,g=,o= /onion-service \
-    && chown onion /onion-service
+    && chown tor /onion-service
+VOLUME /var/lib/tor
 VOLUME /onion-service
 
 #RUN apk add --no-cache \
@@ -23,7 +23,7 @@ ENV VIRTUAL_PORT 80
 ENV TARGET 1.2.3.4:8080
 ENTRYPOINT ["/entrypoint.sh"]
 
-USER onion
+USER tor
 CMD ["tor", "-f", "/tmp/torrc"]
 
 HEALTHCHECK CMD \

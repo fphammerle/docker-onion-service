@@ -1,16 +1,23 @@
 - hosts: [some-host]
   become: true
   tasks:
-  - docker_volume:
-      name: onion_service_key
   - docker_container:
       name: onion_service
-      # 0.2-tor0.3.3.7-amd64
-      image: fphammerle/onion-service@sha256:51b5ee67fea1587421fd3dd982cc58f7554b68fe051d316d6d120e560675d2b8
+      # TODO replace with fingerprint
+      image: fphammerle/onion-service:2.0.0-tor0.4.3.5-amd64
       env:
         VIRTUAL_PORT: 80
         TARGET: 1.2.3.4:8080
-      volumes: ['onion_service_key:/onion-service']
+      volumes:
+      - onion_service_data:/var/lib/tor
+      - onion_service_key:/onion-service
+      mounts:
+      - type: tmpfs
+        target: /tmp # torrc
+        # nosuid,nodev,noexec added by default
+        tmpfs_mode: '1777'
+        tmpfs_size: 4k
+      read_only: yes
       cap_drop: [ALL]
       security_opts: [no-new-privileges]
       memory: 128M

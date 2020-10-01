@@ -31,6 +31,9 @@ $ sudo docker create --name onion_service \
 $ sudo docker start onion_service
 ```
 
+optionally add `--read-only --tmpfs /tmp:rw,size=4k`
+to make the container's root filesystem read only
+
 ## retrieve hostname
 
 ```sh
