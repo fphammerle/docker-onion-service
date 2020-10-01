@@ -40,7 +40,8 @@ abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
 ## show circuits
 
 ```sh
-$ sudo docker exec onion_service sh -c 'printf "AUTHENTICATE\nGETINFO circuit-status\nQUIT\n" | nc localhost 9051'
+$ sudo docker exec onion_service \
+    sh -c 'printf "AUTHENTICATE\nGETINFO circuit-status\nQUIT\n" | nc localhost 9051'
 ```
 relay search: https://metrics.torproject.org/rs.html
 
