@@ -42,6 +42,7 @@ abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
 ```sh
 $ sudo docker exec onion_service sh -c 'printf "AUTHENTICATE\nGETINFO circuit-status\nQUIT\n" | nc localhost 9051'
 ```
+relay search: https://metrics.torproject.org/rs.html
 
 ## docker-compose 🐙
 

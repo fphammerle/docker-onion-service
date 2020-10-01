@@ -10,6 +10,12 @@ RUN apk add --no-cache \
     && chown onion /onion-service
 VOLUME /onion-service
 
+#RUN apk add --no-cache \
+#        less \
+#        man-db \
+#        tor-doc=$TOR_PACKAGE_VERSION
+#ENV PAGER=less
+
 COPY torrc.template entrypoint.sh /
 RUN chmod -c a+rX /torrc.template /entrypoint.sh
 ENV VERSION 3
