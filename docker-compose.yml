@@ -12,6 +12,7 @@ services:
     environment:
       VIRTUAL_PORT: 80
       TARGET: 1.2.3.4:8080
+    cap_drop: [ALL]
     security_opt: [no-new-privileges]
     cpus: 0.5
     mem_limit: 128m

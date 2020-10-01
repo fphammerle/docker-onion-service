@@ -11,5 +11,7 @@
         VIRTUAL_PORT: 80
         TARGET: 1.2.3.4:8080
       volumes: ['onion_service_key:/onion-service']
+      cap_drop: [ALL]
+      security_opts: [no-new-privileges]
       memory: 128M
       restart_policy: unless-stopped
