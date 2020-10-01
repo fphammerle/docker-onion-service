@@ -3,8 +3,9 @@
   tasks:
   - docker_container:
       name: onion_service
-      # TODO replace with fingerprint
-      image: fphammerle/onion-service:2.0.0-tor0.4.3.5-amd64
+      # object 3acef0d56536497ecf85ebdd017dd8d825be1d8d
+      # tag docker/2.0.0-tor0.4.3.5-amd64
+      image: docker.io/fphammerle/onion-service@sha256:4e64c5ddc1115b9c2fb1d6ea6ce6ac3cf77fbfb048257d9c8c3c71b4765611fb
       env:
         VIRTUAL_PORT: 80
         TARGET: 1.2.3.4:8080
