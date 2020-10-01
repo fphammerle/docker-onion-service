@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+set -eux
 
 sed -e "s#{version}#$VERSION#" \
     -e "s#{virtual_port}#$VIRTUAL_PORT#" \

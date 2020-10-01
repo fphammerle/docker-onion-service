@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   listener on port `9051`
   (listening on loopback device only)
 
+### Fixed
+- reduced number of image layers
+
 ## [1.0.1] - 2020-02-22
 ### Fixed
 - reduced number of image layers

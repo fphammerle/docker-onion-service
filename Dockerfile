@@ -10,19 +10,14 @@ RUN apk add --no-cache \
     && chown onion /onion-service
 VOLUME /onion-service
 
-COPY torrc.template /
-RUN chmod a+r /torrc.template
-
+COPY torrc.template entrypoint.sh /
+RUN chmod -c a+rX /torrc.template /entrypoint.sh
 ENV VERSION 3
 ENV VIRTUAL_PORT 80
 ENV TARGET 1.2.3.4:8080
-
-COPY entrypoint.sh /
-RUN chmod a+rx /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 USER onion
-
 CMD ["tor", "-f", "/tmp/torrc"]
 
 HEALTHCHECK CMD \
