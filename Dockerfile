@@ -1,10 +1,10 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
-ARG TOR_PACKAGE_VERSION=0.4.1.7-r0
 ARG NETCAT_PACKAGE_VERSION=1.130-r1
+ARG TOR_PACKAGE_VERSION=0.4.3.5-r0
 RUN apk add --no-cache \
-        netcat-openbsd=${NETCAT_PACKAGE_VERSION} \
-        tor=${TOR_PACKAGE_VERSION} \
+        netcat-openbsd=$NETCAT_PACKAGE_VERSION \
+        tor=$TOR_PACKAGE_VERSION \
     && adduser -S onion \
     && mkdir -m u=rwx,g=,o= /onion-service \
     && chown onion /onion-service
