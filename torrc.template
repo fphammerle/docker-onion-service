@@ -1,5 +1,8 @@
 Log notice stdout
 
+# https://gitweb.torproject.org/torspec.git/tree/control-spec.txt
+ControlPort localhost:9051
+
 # healthcheck
 SocksPort 9050
 

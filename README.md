@@ -11,7 +11,7 @@ defaults to creating a [v3](https://trac.torproject.org/projects/tor/wiki/doc/Ne
 ## example 1
 
 ```sh
-$ docker run --name onion-service \
+$ sudo docker run --name onion_service \
     -e VIRTUAL_PORT=80 -e TARGET=1.2.3.4:8080 \
     fphammerle/onion-service
 ```
@@ -19,7 +19,7 @@ $ docker run --name onion-service \
 ## example 2
 
 ```sh
-$ docker create --name onion-service \
+$ sudo docker create --name onion_service \
     --env VERSION=3 \
     --env VIRTUAL_PORT=80 \
     --env TARGET=1.2.3.4:8080 \
@@ -28,18 +28,23 @@ $ docker create --name onion-service \
     --cap-drop all --security-opt no-new-privileges \
     fphammerle/onion-service:latest
 
-$ docker start onion-service
+$ sudo docker start onion_service
 ```
 
 ## retrieve hostname
 
 ```sh
-$ docker exec onion-service cat /onion-service/hostname
+$ sudo docker exec onion_service cat /onion-service/hostname
 abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
+```
+## show circuits
+
+```sh
+$ sudo docker exec onion_service sh -c 'printf "AUTHENTICATE\nGETINFO circuit-status\nQUIT\n" | nc localhost 9051'
 ```
 
 ## docker-compose 🐙
 
 1. `git clone https://github.com/fphammerle/docker-onion-service`
 2. edit `docker-compose.yml`
-3. `docker-compose up --build`
+3. `sudo docker-compose up --build`
