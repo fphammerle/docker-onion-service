@@ -53,3 +53,22 @@ relay search: https://metrics.torproject.org/rs.html
 1. `git clone https://github.com/fphammerle/docker-onion-service`
 2. edit `docker-compose.yml`
 3. `sudo docker-compose up --build`
+
+## further reading
+
+[onion service protocol overview](https://community.torproject.org/onion-services/overview/)
+
+[operational security](https://community.torproject.org/onion-services/advanced/opsec/)
+
+### http
+
+ways to publish onion services:
+* alt-svc header:
+  [cloudflare blog](https://blog.cloudflare.com/cloudflare-onion-service/),
+  [privacytools.io](https://write.privacytools.io/jonah/securing-services-with-tor-and-alt-svc),
+  [comparison](https://medium.com/@alecmuffett/different-ways-to-add-tor-onion-addresses-to-your-website-39106e2506f9),
+  [syntax](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Alt-Svc),
+  [spec](https://tools.ietf.org/html/rfc7838)
+* onion-location header:
+  [apache & nginx setup](https://community.torproject.org/onion-services/advanced/onion-location/),
+  [announcement for android](https://blog.torproject.org/comment/288078)
