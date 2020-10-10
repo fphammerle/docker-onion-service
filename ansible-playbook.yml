@@ -21,5 +21,8 @@
       read_only: yes
       cap_drop: [ALL]
       security_opts: [no-new-privileges]
+      cpu_quota: 5000
+      cpu_period: 10000
       memory: 128M
       restart_policy: unless-stopped
+      state: started
