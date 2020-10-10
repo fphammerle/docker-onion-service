@@ -9,6 +9,7 @@
       env:
         VIRTUAL_PORT: '80'
         TARGET: 1.2.3.4:8080
+        # on v3.0.0:
         #NON_ANONYMOUS_SINGLE_HOP_MODE: '1'
       volumes:
       - onion_service_data:/var/lib/tor
