@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- option `NON_ANONYMOUS_SINGLE_HOP_MODE=1` to enable non-anonymous single hop mode
+  (direct circuits to introduction & rendezvous points)
 - ansible playbook: limit container's cpu usage
 
 ### Changed

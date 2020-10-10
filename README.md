@@ -40,6 +40,18 @@ to make the container's root filesystem read only
 $ sudo docker exec onion_service cat /onion-service/hostname
 abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrst.onion
 ```
+
+## single-hop mode
+
+in single-hop mode connections from the onion service
+to introduction & rendezvous points will be direct
+and thus no longer anonymous:
+```sh
+$ sudo docker run -e NON_ANONYMOUS_SINGLE_HOP_MODE=1 …
+```
+
+useful to reduce latency (e.g. clearnet http servers setting `alt-svc` header)
+
 ## show circuits
 
 ```sh
