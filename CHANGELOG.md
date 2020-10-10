@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- healthcheck: probe [network-liveness](https://gitweb.torproject.org/torspec.git/tree/control-spec.txt)
+  instead of tcp scanning via socks proxy
+- changed log level of `control` domain to `warn`
+  (to avoid log spam by healthcheck connecting to control listener)
+- added message domains to log messages
+
+### Removed
+- disabled socks proxy
+- `netcat-openbsd` package
+  (busybox implementation sufficient for new healthcheck)
 
 ## [2.0.0] - 2020-10-01
 ### Added

@@ -1,4 +1,7 @@
-Log notice stdout
+# hide healthchecks:
+# > [notice] {CONTROL} New control connection opened from 127.0.0.1.
+Log [~control]notice warn stdout
+LogMessageDomains 1
 
 # default: ~/.tor
 DataDirectory /var/lib/tor
@@ -6,8 +9,7 @@ DataDirectory /var/lib/tor
 # https://gitweb.torproject.org/torspec.git/tree/control-spec.txt
 ControlPort localhost:9051
 
-# healthcheck
-SocksPort 9050
+SocksPort 0
 
 # https://www.torproject.org/docs/tor-onion-service
 HiddenServiceDir /onion-service
