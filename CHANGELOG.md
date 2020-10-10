@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - changed log level of `control` domain to `warn`
   (to avoid log spam by healthcheck connecting to control listener)
 - added message domains to log messages
+- fill `torrc` template with `envsubst`
 
 ### Removed
 - disabled socks proxy

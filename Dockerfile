@@ -1,7 +1,10 @@
 FROM alpine:3.12
 
+ARG GETTEXT_PACKAGE_VERSION=0.20.2-r0
 ARG TOR_PACKAGE_VERSION=0.4.3.5-r0
-RUN apk add --no-cache tor=$TOR_PACKAGE_VERSION \
+RUN apk add --no-cache \
+        tor=$TOR_PACKAGE_VERSION \
+        gettext=$GETTEXT_PACKAGE_VERSION \
     && mkdir -m u=rwx,g=,o= /onion-service \
     && chown tor /onion-service
 VOLUME /var/lib/tor

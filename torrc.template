@@ -13,8 +13,8 @@ SocksPort 0
 
 # https://www.torproject.org/docs/tor-onion-service
 HiddenServiceDir /onion-service
-HiddenServiceVersion {version}
-HiddenServicePort {virtual_port} {target}
+HiddenServiceVersion $VERSION
+HiddenServicePort $VIRTUAL_PORT $TARGET
 
 # try to
 HardwareAccel 1
