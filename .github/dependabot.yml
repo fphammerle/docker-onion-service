@@ -1,0 +1,10 @@
+version: 2
+
+updates:
+- package-ecosystem: docker
+  directory: /
+  schedule:
+    interval: weekly
+    day: friday
+
+# https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/configuration-options-for-dependency-updates
