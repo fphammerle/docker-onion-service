@@ -33,5 +33,7 @@ HEALTHCHECK CMD \
         | grep -q network-liveness=up || exit 1
 
 # https://github.com/opencontainers/image-spec/blob/v1.0.1/annotations.md
+ARG REVISION=
 LABEL org.opencontainers.image.title="tor onion service" \
-    org.opencontainers.image.source="https://github.com/fphammerle/docker-onion-service"
+    org.opencontainers.image.source="https://github.com/fphammerle/docker-onion-service" \
+    org.opencontainers.image.revision="$REVISION"

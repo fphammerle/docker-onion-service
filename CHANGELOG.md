@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - image labels:
+  - `org.opencontainers.image.revision` (git commit hash via build arg)
   - `org.opencontainers.image.source` (repo url)
   - `org.opencontainers.image.title`
 
