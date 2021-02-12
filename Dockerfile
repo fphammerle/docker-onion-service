@@ -31,3 +31,7 @@ CMD ["tor", "-f", "/tmp/torrc"]
 HEALTHCHECK CMD \
     printf "AUTHENTICATE\nGETINFO network-liveness\nQUIT\n" | nc localhost 9051 \
         | grep -q network-liveness=up || exit 1
+
+# https://github.com/opencontainers/image-spec/blob/v1.0.1/annotations.md
+LABEL org.opencontainers.image.title="tor onion service" \
+    org.opencontainers.image.source="https://github.com/fphammerle/docker-onion-service"
