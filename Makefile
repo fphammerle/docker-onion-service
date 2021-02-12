@@ -2,6 +2,8 @@ IMAGE_NAME = docker.io/fphammerle/onion-service
 BUILD_VERSION = $(shell git describe --match=v* --abbrev=0 --dirty | sed -e 's/^v//')
 TOR_PACKAGE_VERSION = $(shell grep -Po 'TOR_PACKAGE_VERSION=\K.+' Dockerfile | tr -d -)
 ARCH = $(shell arch)
+# architecture[arm_variant]
+# https://github.com/opencontainers/image-spec/blob/v1.0.1/image-index.md#image-index-property-descriptions
 IMAGE_TAG_ARCH_aarch64 = arm64
 IMAGE_TAG_ARCH_armv6l = armv6
 IMAGE_TAG_ARCH_armv7l = armv7
