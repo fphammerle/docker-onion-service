@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.13.3
+FROM docker.io/alpine:3.13.4
 
 ARG GETTEXT_PACKAGE_VERSION=0.20.2-r2
 ARG TOR_PACKAGE_VERSION=0.4.4.8-r0
