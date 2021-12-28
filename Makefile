@@ -29,4 +29,4 @@ podman-build: worktree-clean
 
 docker-push: docker-build
 	sudo docker push "${IMAGE_NAME}:${IMAGE_TAG}"
-	@echo git tag --sign --message '$(shell sudo docker image inspect --format '{{join .RepoDigests "\n"}}' "${IMAGE_NAME}:${IMAGE_TAG}")' docker/${IMAGE_TAG} $(shell git rev-parse HEAD)
+	@echo git tag --sign --message '$(shell sudo docker image inspect --format '{{join .RepoDigests "\n"}}' "${IMAGE_NAME}:${IMAGE_TAG}" | sed "s/@/:${IMAGE_TAG}@/")' docker/${IMAGE_TAG} $(shell git rev-parse HEAD)
