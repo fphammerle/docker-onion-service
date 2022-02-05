@@ -77,7 +77,7 @@ relay search: https://metrics.torproject.org/rs.html
 ways to publish onion services:
 * alt-svc header:
   [cloudflare blog](https://blog.cloudflare.com/cloudflare-onion-service/),
-  [privacytools.io](https://write.privacytools.io/jonah/securing-services-with-tor-and-alt-svc),
+  [privacytools.io](https://web.archive.org/web/20210116140200/https://write.privacytools.io/jonah/securing-services-with-tor-and-alt-svc),
   [comparison](https://medium.com/@alecmuffett/different-ways-to-add-tor-onion-addresses-to-your-website-39106e2506f9),
   [syntax](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Alt-Svc),
   [spec](https://tools.ietf.org/html/rfc7838)
