@@ -1,7 +1,7 @@
 FROM docker.io/alpine:3.16.0
 
 ARG GETTEXT_PACKAGE_VERSION=0.21-r2
-ARG TOR_PACKAGE_VERSION=0.4.7.7-r1
+ARG TOR_PACKAGE_VERSION=0.4.7.8-r0
 RUN apk add --no-cache \
         tor=$TOR_PACKAGE_VERSION \
         gettext=$GETTEXT_PACKAGE_VERSION \
