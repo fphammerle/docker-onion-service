@@ -9,11 +9,12 @@ IMAGE_TAG_ARCH_armv6l = armv6
 IMAGE_TAG_ARCH_armv7l = armv7
 IMAGE_TAG_ARCH_x86_64 = amd64
 IMAGE_TAG_ARCH = ${IMAGE_TAG_ARCH_${ARCH}}
-IMAGE_TAG = ${PROJECT_VERSION}-tor${TOR_PACKAGE_VERSION}-${IMAGE_TAG_ARCH}
+MANIFEST_TAG = ${PROJECT_VERSION}-tor${TOR_PACKAGE_VERSION}
+IMAGE_TAG = ${MANIFEST_TAG}-${IMAGE_TAG_ARCH}
 BUILD_PARAMS = --tag="${IMAGE_NAME}:${IMAGE_TAG}" \
 	--build-arg=REVISION="$(shell git rev-parse HEAD)"
 
-.PHONY: worktree-clean docker-build podman-build docker-push
+.PHONY: worktree-clean docker-build podman-build docker-push docker-manifest-push
 
 worktree-clean:
 	git diff --exit-code
@@ -30,3 +31,9 @@ podman-build: worktree-clean
 docker-push: docker-build
 	sudo docker push "${IMAGE_NAME}:${IMAGE_TAG}"
 	@echo git tag --sign --message '$(shell sudo docker image inspect --format '{{join .RepoDigests "\n"}}' "${IMAGE_NAME}:${IMAGE_TAG}" | sed "s/@/:${IMAGE_TAG}@/")' docker/${IMAGE_TAG} $(shell git rev-parse HEAD)
+
+docker-manifest-push:
+	git tag | grep '^docker/${MANIFEST_TAG}-' | xargs -L1 -t git tag -v \
+		| grep @sha256: | xargs -t sudo docker manifest create "${IMAGE_NAME}:${MANIFEST_TAG}"
+	sudo docker manifest push "${IMAGE_NAME}:${MANIFEST_TAG}"
+	sudo docker manifest inspect "${IMAGE_NAME}:${MANIFEST_TAG}" | yq --yaml-output .
