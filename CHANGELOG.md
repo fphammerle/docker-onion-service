@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `org.opencontainers.image.source` (repo url)
   - `org.opencontainers.image.title`
 
+### Fixed
+- docker-compose: remove ineffective/breaking (depending on compose version)
+  option `tmpfs.mode`
+
 ## [3.0.0] - 2020-10-10
 ### Added
 - option `NON_ANONYMOUS_SINGLE_HOP_MODE=1` to enable non-anonymous single hop mode

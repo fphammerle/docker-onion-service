@@ -17,10 +17,8 @@ services:
       target: /onion-service
     - type: tmpfs
       target: /tmp # torrc
-      tmpfs:
-        # nosuid,nodev,noexec added by default
-        mode: '1777'
-        size: 4k
+      # nosuid,nodev,noexec added by default
+      tmpfs: {size: 4k}
     read_only: yes
     environment:
       VIRTUAL_PORT: 80
