@@ -22,3 +22,15 @@ jobs:
         platforms: |
           linux/amd64
           linux/arm/v7
+        # > $ skopeo copy --all oci-archive:oci-container-image.tar \
+        # >     docker://quay.io/fphammerle/test:test
+        # > [...]
+        # > FATA[0056] Error creating an updated image manifest: Error preparing
+        # . updated manifest, layer "sha256:[...]": unsupported MIME type for
+        # . compression: application/vnd.in-toto+json
+        provenance: false
+        # https://docs.docker.com/engine/reference/commandline/buildx_build/#output
+        # https://github.com/opencontainers/image-spec
+        outputs: type=oci,dest=oci-container-image.tar
+    - uses: actions/upload-artifact@v3.1.2
+      with: {path: oci-container-image.tar}
