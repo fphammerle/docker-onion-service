@@ -22,6 +22,8 @@ jobs:
         platforms: |
           linux/amd64
           linux/arm/v7
+        # potential alternative: https://github.com/docker/metadata-action
+        build-args: REVISION=${{ github.sha }}
         # > $ skopeo copy --all oci-archive:oci-container-image.tar \
         # >     docker://quay.io/fphammerle/test:test
         # > [...]
