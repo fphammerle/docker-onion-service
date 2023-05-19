@@ -1,10 +1,11 @@
 FROM docker.io/alpine:3.18.0
 
-ARG GETTEXT_PACKAGE_VERSION=0.21.1-r5
+# https://git.alpinelinux.org/aports/log/main/gettext?h=3.18-stable
+ARG GETTEXT_PACKAGE_VERSION=0.21.1-r7
 ARG TOR_PACKAGE_VERSION=0.4.7.13-r2
 RUN apk add --no-cache \
         tor=$TOR_PACKAGE_VERSION \
-        gettext=$GETTEXT_PACKAGE_VERSION \
+        gettext-envsubst=$GETTEXT_PACKAGE_VERSION \
     && mkdir -m u=rwx,g=,o= /onion-service \
     && chown tor /onion-service
 VOLUME /var/lib/tor
