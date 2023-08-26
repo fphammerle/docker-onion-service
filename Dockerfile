@@ -2,7 +2,9 @@ FROM docker.io/alpine:3.18.3
 
 # https://git.alpinelinux.org/aports/log/main/gettext?h=3.18-stable
 ARG GETTEXT_PACKAGE_VERSION=0.21.1-r7
-ARG TOR_PACKAGE_VERSION=0.4.7.13-r2
+# https://gitweb.torproject.org/tor.git/plain/ChangeLog
+# https://git.alpinelinux.org/aports/log/community/tor?h=3.18-stable
+ARG TOR_PACKAGE_VERSION=0.4.8.4-r0
 RUN apk add --no-cache \
         tor=$TOR_PACKAGE_VERSION \
         gettext-envsubst=$GETTEXT_PACKAGE_VERSION \
