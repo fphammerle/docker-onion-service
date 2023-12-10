@@ -1,10 +1,10 @@
-FROM docker.io/alpine:3.18.5
+FROM docker.io/alpine:3.19.0
 
-# https://git.alpinelinux.org/aports/log/main/gettext?h=3.18-stable
-ARG GETTEXT_PACKAGE_VERSION=0.21.1-r7
+# https://git.alpinelinux.org/aports/log/main/gettext?h=3.19-stable
+ARG GETTEXT_PACKAGE_VERSION=0.22.3-r0
 # https://gitweb.torproject.org/tor.git/plain/ChangeLog
 # https://gitlab.torproject.org/tpo/core/tor/-/raw/release-0.4.8/ReleaseNotes
-# https://git.alpinelinux.org/aports/log/community/tor?h=3.18-stable
+# https://git.alpinelinux.org/aports/log/community/tor?h=3.19-stable
 ARG TOR_PACKAGE_VERSION=0.4.8.10-r0
 RUN apk add --no-cache \
         tor=$TOR_PACKAGE_VERSION \
