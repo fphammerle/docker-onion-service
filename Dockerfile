@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.19.1
+FROM docker.io/alpine:3.20.0
 
 # https://git.alpinelinux.org/aports/log/main/gettext?h=3.19-stable
 ARG GETTEXT_PACKAGE_VERSION=0.22.3-r0
