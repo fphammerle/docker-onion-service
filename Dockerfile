@@ -1,11 +1,11 @@
-FROM docker.io/alpine:3.21.3
+FROM docker.io/alpine:3.22.0
 
 # https://git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob_plain;f=NEWS;hb=master
-# https://git.alpinelinux.org/aports/log/main/gettext?h=3.21-stable
-ARG GETTEXT_PACKAGE_VERSION=0.22.5-r0
+# https://git.alpinelinux.org/aports/log/main/gettext?h=3.22-stable
+ARG GETTEXT_PACKAGE_VERSION=0.24.1-r0
 # https://gitweb.torproject.org/tor.git/plain/ChangeLog
 # https://gitlab.torproject.org/tpo/core/tor/-/raw/release-0.4.8/ReleaseNotes
-# https://git.alpinelinux.org/aports/log/community/tor?h=3.21-stable
+# https://git.alpinelinux.org/aports/log/community/tor?h=3.22-stable
 ARG TOR_PACKAGE_VERSION=0.4.8.16-r0
 RUN apk add --no-cache \
         tor=$TOR_PACKAGE_VERSION \
