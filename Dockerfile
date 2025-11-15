@@ -6,7 +6,7 @@ ARG GETTEXT_PACKAGE_VERSION=0.24.1-r0
 # https://gitweb.torproject.org/tor.git/plain/ChangeLog
 # https://gitlab.torproject.org/tpo/core/tor/-/raw/release-0.4.8/ReleaseNotes
 # https://git.alpinelinux.org/aports/log/community/tor?h=3.22-stable
-ARG TOR_PACKAGE_VERSION=0.4.8.19-r0
+ARG TOR_PACKAGE_VERSION=0.4.8.20-r0
 RUN apk add --no-cache \
         tor=$TOR_PACKAGE_VERSION \
         gettext-envsubst=$GETTEXT_PACKAGE_VERSION \
