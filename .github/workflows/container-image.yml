@@ -40,7 +40,7 @@ jobs:
     # https://github.com/marketplace/actions/build-and-push-docker-images
     # > The commit history is not preserved.
     # https://docs.docker.com/engine/reference/commandline/build/#git-repositories
-    - uses: docker/build-push-action@v6.18.0
+    - uses: docker/build-push-action@v6.19.2
       with:
         platforms: |
           linux/amd64
