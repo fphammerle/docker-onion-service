@@ -15,7 +15,7 @@ jobs:
     - id: meta
       # > "automatic" tag management and OCI Image Format Spec… for labels
       # https://web.archive.org/web/20250103123053/https://docs.docker.com/build/ci/github-actions/manage-tags-labels/
-      uses: docker/metadata-action@v5
+      uses: docker/metadata-action@v6
       with:
         # see comment on `push: true` below
         images: ghcr.io/${{ github.repository_owner }}/onion-service
