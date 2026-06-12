@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.23.4
+FROM docker.io/alpine:3.24.0
 
 # https://git.savannah.gnu.org/gitweb/?p=gettext.git;a=blob_plain;f=NEWS;hb=master
 # https://git.alpinelinux.org/aports/log/main/gettext?h=3.23-stable
