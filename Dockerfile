@@ -23,10 +23,10 @@ VOLUME /onion-service
 
 COPY torrc.template entrypoint.sh /
 RUN chmod -c a+rX /torrc.template /entrypoint.sh
-ENV VERSION 3
-ENV VIRTUAL_PORT 80
-ENV TARGET 1.2.3.4:8080
-ENV NON_ANONYMOUS_SINGLE_HOP_MODE 0
+ENV VERSION=3
+ENV VIRTUAL_PORT=80
+ENV TARGET=1.2.3.4:8080
+ENV NON_ANONYMOUS_SINGLE_HOP_MODE=0
 ENTRYPOINT ["/entrypoint.sh"]
 
 USER tor
