@@ -11,6 +11,10 @@
   `update <package> from <old> to <new>` and list the **relevant changes** of the new version in
   the body, taken from the upstream changelog linked in the comments above the version `ARG`
   (e.g. security fixes, onion service / relay / client behaviour changes).
+- Never justify a package version update with the old pinned version no longer being installable
+  or the build failing because of it (e.g. "so the pinned version can no longer be installed") —
+  pins are intentional and breaking when the distribution moves on is their whole point. Keep the
+  version pinned; this applies to PR descriptions as well.
 
 ## CHANGELOG
 
