@@ -49,6 +49,10 @@
 ## CI failures
 
 - Fix CI failures automatically, iterating until all checks are green — no need to ask first.
+- After a fix for a failing build is merged into `master`, **automatically** comment the
+  Dependabot rebase command on each of Dependabot's open pull requests (without being asked), so
+  their checks re-run on top of the fix instead of staying red. Follow the mandatory steps in
+  "GitHub comments that @-mention a bot" below.
 
 ## GitHub comments that @-mention a bot
 
@@ -62,6 +66,9 @@
     character with the intended text. Only then post the next one.
   - If the body is wrong, edit the comment to the exact intended text (Dependabot does act on
     edited comments) and read it back again — don't leave a broken command posted.
+  - Creating the comment has corrupted the body **every time** so far, while editing it to the
+    same text came through intact — so never consider a bot command posted after the create
+    call alone; the read-back and (almost always needed) edit are part of posting it.
 - The same corruption also hits `@mentions` in PR descriptions and other GitHub text. Don't quote
   bot commands literally there (describe them instead, e.g. "the Dependabot rebase command"), and
   read every PR description back after creating or updating it.
