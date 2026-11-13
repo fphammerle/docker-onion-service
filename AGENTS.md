@@ -40,11 +40,33 @@
 - One commit per PR; amend rather than adding new commits.
 - Force-push with `--force-with-lease` on feature branches.
 - **Never force-push to `master`.**
-- **Always open a pull request — never push directly to `master`.**
+- **Always open a pull request — never push directly to `master`** (the only exception is
+  fast-forwarding `master` to a pull request's head commit, see "Merging pull requests").
 - **Never amend or force-push a branch whose PR is already merged or closed** — that rewrites
   history that's already landed (or been reviewed) and leaves a dangling branch that no longer
   reflects what merged. For a follow-up change, create a **new** branch (from current `master`)
   and a **new** PR instead.
+
+## Merging pull requests
+
+- Keep existing commit signatures: never rewrite commits when merging — no GitHub squash or rebase
+  merge, no cherry-picking or re-creating commits locally. Rewriting replaces signed commits (e.g.
+  Dependabot's) with new, unsigned or differently signed ones.
+- Pull requests / branches with a **single commit**, or whose changes should be squashed into a
+  single commit: **fast-forward** `master` to the branch's head commit, so that exact commit lands
+  on `master`.
+  - Squashing belongs on the branch, done by its author — squashing someone else's signed commits
+    yourself would drop their signatures.
+  - The head commit's parent must be the current `master` tip. If it isn't, have the branch
+    rebased by its author (for Dependabot: the rebase command, see "GitHub comments that
+    @-mention a bot").
+  - All checks must have passed on **that exact head commit** — a push to `master` doesn't wait
+    for them the way GitHub's merge button does.
+  - Then push the head commit: `git push origin <head-sha>:master` (no force) — GitHub marks the
+    pull request as merged.
+- Pull requests / branches with **multiple commits that should stay separate**: create a merge
+  commit (GitHub merge method `merge`).
+- Never call GitHub's merge API without an explicit merge method, and never use `squash` or `rebase`.
 
 ## CI failures
 
